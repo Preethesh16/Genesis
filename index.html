@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5efe6" />
+  <title>Daily Verse — a quiet place to reflect</title>
+  <meta name="description" content="One verse at a time. Understand it, apply it, save it." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="brand-name">Daily Verse</span>
+    </div>
+    <nav class="topnav">
+      <button class="nav-btn" data-view="verse" aria-label="Today's verse">Today</button>
+      <button class="nav-btn" data-view="moods" aria-label="Choose a mood">Mood</button>
+      <button class="nav-btn" data-view="saved" aria-label="Saved verses">Saved</button>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- Verse view -->
+    <section class="view" id="view-verse">
+      <article class="card verse-card" aria-live="polite">
+        <p class="reference" id="verse-ref"></p>
+        <blockquote class="verse-text" id="verse-text"></blockquote>
+
+        <div class="layers" id="layers" hidden>
+          <div class="layer" data-layer="simple">
+            <h3>Simple</h3>
+            <p id="layer-simple"></p>
+          </div>
+          <div class="layer" data-layer="deep">
+            <h3>Deeper</h3>
+            <p id="layer-deep"></p>
+          </div>
+          <div class="layer" data-layer="practical">
+            <h3>For today</h3>
+            <p id="layer-practical"></p>
+          </div>
+          <div class="layer prompt" data-layer="prompt">
+            <h3>Sit with this</h3>
+            <p id="layer-prompt"></p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="btn-explain">Explain</button>
+          <button class="btn" id="btn-save" aria-pressed="false">Save</button>
+          <button class="btn" id="btn-share">Share</button>
+          <button class="btn ghost" id="btn-another">Another verse</button>
+        </div>
+
+        <p class="mood-hint" id="mood-hint" hidden></p>
+      </article>
+    </section>
+
+    <!-- Mood view -->
+    <section class="view" id="view-moods" hidden>
+      <div class="card">
+        <h2 class="view-title">How are you feeling?</h2>
+        <p class="view-sub">Choose what's closest. We'll find a verse for it.</p>
+        <div class="mood-grid">
+          <button class="mood" data-mood="sad">Sad</button>
+          <button class="mood" data-mood="anxious">Anxious</button>
+          <button class="mood" data-mood="angry">Angry</button>
+          <button class="mood" data-mood="fearful">Fearful</button>
+          <button class="mood" data-mood="weary">Weary</button>
+          <button class="mood" data-mood="grieving">Grieving</button>
+          <button class="mood" data-mood="hopeful">Hopeful</button>
+          <button class="mood" data-mood="peaceful">Peaceful</button>
+        </div>
+        <button class="btn ghost wide" id="btn-clear-mood">Show any verse</button>
+      </div>
+    </section>
+
+    <!-- Saved view -->
+    <section class="view" id="view-saved" hidden>
+      <div class="card">
+        <h2 class="view-title">Saved verses</h2>
+        <p class="view-sub" id="saved-empty" hidden>You haven't saved any verses yet.</p>
+        <ul class="saved-list" id="saved-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Quiet by design. No accounts. Nothing tracked.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
